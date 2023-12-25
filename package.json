@@ -1,0 +1,27 @@
+{
+  "name": "pois-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osescobar92/pois-backend.git"
+  },
+  "keywords": [
+    "georeference",
+    "pois",
+    "nodejs"
+  ],
+  "author": "Oscar Escobar Ulloa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osescobar92/pois-backend/issues"
+  },
+  "homepage": "https://github.com/osescobar92/pois-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
