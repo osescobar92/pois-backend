@@ -6,13 +6,25 @@ var db = pgp(connectionString);
 
 //Obtener todos los puntos
 async function getAllPois() {
-    var data = await db.any('select * from pois');
-    return data;
+    try {
+        var pois = await db.any('select * from pois');
+        return { pois };
+    } catch(error) {
+        return {
+            error
+        }
+    }
 }
 //Filtrar por categoría
 async function getPoisByCategoryId(categoryId) {
-    var data = await db.any('select * from pois where category_id = $1', categoryId)
-    return data;
+    try {
+        var pois = await db.any('select * from pois where category_id = $1', categoryId)
+        return { pois };
+    } catch(error) {
+        return {
+            error
+        }
+    }
 }
 
 module.exports = {
