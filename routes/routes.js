@@ -1,12 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Ruta pois');
+const db = require('../database/connection'); 
+
+router.get('/', async (req, res) => {
+    res.status(200)
+    .json({
+        pois: await db.getAllPois()
+    });
 });
 
-router.get('/:category_id', (req, res) => {
-    res.send('Ruta pois/category_id:', req.params);
+router.get('/:category_id', async (req, res) => {
+    var categoryId = req.params.category_id;
+    res.status(200)
+        .json({
+            pois: await db.getPoisByCategoryId(categoryId)
+        });
 });
 
 module.exports = router;
