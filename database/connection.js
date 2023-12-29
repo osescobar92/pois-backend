@@ -1,10 +1,14 @@
+require('dotenv').config();
 var pgp = require('pg-promise')();
-var connectionString = 'postgres://fullstack:desafio-2020@desafio-full-stack.cdr9wf5llq1m.us-east-1.rds.amazonaws.com:5432/georesearch';
-var db = pgp(connectionString);
 
-//query functions
+var db = pgp({
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    database: process.env.POSTGRES_DATABASE,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD
+});
 
-//Obtener todos los puntos
 async function getAllPois() {
     try {
         var pois = await db.any('select * from pois');
